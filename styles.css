@@ -1,0 +1,285 @@
+:root {
+  --clr-primary-cyan: hsl(158, 36%, 37%);
+  --clr-primary-cream: hsl(30, 38%, 92%);
+
+  --clr-neutral-dark: hsl(212, 21%, 14%);
+  --clr-neutral-gray: hsl(228, 12%, 48%);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+
+  --ff-primary: "Montserrat", sans-serif;
+  --ff-secondary: "Fraunces", serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.875rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-800);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+}
+
+/* @media (min-width: 50em) {
+  :root {
+    --fs-700: 3.5rem;
+    --fs-600: 2.5rem;
+
+    --fs-body: var(--fs-500);
+    --fs-primary-heading: var(--fs-900);
+    --fs-secondary-heading: var(--fs-800);
+    --fs-nav: var(--fs-300);
+  }
+} */
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: var(--clr-primary-cream);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+}
+
+.container {
+  --max-width: 600px;
+  margin: 50px;
+  --padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--padding)) * 2);
+  margin-inline: auto;
+  position: relative;
+  /* margin: auto; */
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .image__container {
+    background: url("images/image-product-desktop.jpg");
+  }
+}
+
+.image__container {
+  grid-area: img;
+
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+
+@media (max-width: 700px) {
+  .image__container {
+    border-radius: 10px 10px 0 0;
+    background: url("images/image-product-mobile.jpg");
+  }
+}
+
+.hero {
+  background-color: var(--clr-neutral-white);
+  border: transparent;
+  border-radius: 10px;
+  height: max-content;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  grid-template-columns: 1fr;
+}
+
+.text__container {
+  grid-area: text;
+  padding: 35px 52px 20px 15px;
+}
+
+@media (max-width: 700px) {
+  .text__container {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.paragraph {
+  color: var(--clr-neutral-gray);
+  font-size: var(--fs-body);
+}
+
+.paragraph[data-wide="wide"] {
+  letter-spacing: 5px;
+}
+
+.main-heading {
+  font-size: var(--fs-700);
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.main-heading[data-color="green"] {
+  color: var(--clr-primary-cyan);
+}
+
+.discount-slash {
+  font-size: var(--size-300);
+  color: var(--clr-neutral-gray);
+  font-weight: 100;
+  align-items: center;
+}
+
+.cta-button {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  margin: 0 auto;
+  padding: auto;
+  display: flex;
+  text-align: center;
+  font-family: var(--ff-primary);
+  background-color: var(--clr-primary-cyan);
+  border: solid transparent;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  cursor: pointer;
+}
+
+.cta-button > a {
+  text-decoration: none;
+  color: var(--clr-neutral-white);
+}
+
+.cta-button ::before {
+  content: url(images/icon-cart.svg);
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 20%;
+  bottom: 20px;
+}
+
+:where(.flow > :not(:first-child)) {
+  margin-top: var(--flow-spacer, 0.75em);
+}
+
+.grid-area {
+  grid-template-areas:
+    "img"
+    "text";
+}
+
+.even-columns {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .grid-area {
+    grid-template-areas: "img text";
+  }
+
+  .even-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .even-columns {
+    grid-template-rows: 2fr 3fr;
+  }
+}
