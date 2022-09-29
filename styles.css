@@ -220,6 +220,7 @@ body {
   color: var(--clr-neutral-gray);
   font-weight: 100;
   align-items: center;
+  text-decoration: line-through;
 }
 
 .cta-button {
